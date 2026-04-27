@@ -1,0 +1,21 @@
+deployment:
+  replicas: 3
+
+gateway:
+  metrics:
+    enabled: true
+    port: 9901 
+  envoy:
+    gateway:
+      enablePerRouteStats: true
+    service:
+      type: ClusterIP
+    admin:
+      port: 9901  # Envoy admin port
+      address: 0.0.0.0
+    metrics:
+      enabled: true
+      service:
+        annotations:
+          prometheus.io/scrape: "true"
+          prometheus.io/port: "9901" 
