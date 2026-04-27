@@ -1,1 +1,0 @@
-# 016-k8s-deployment-guideline
